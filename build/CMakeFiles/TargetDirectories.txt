@@ -1,0 +1,3 @@
+/home/bryan/Documentos/segundoInterciclo/TrabajoU4PartA/build/CMakeFiles/principal.dir
+/home/bryan/Documentos/segundoInterciclo/TrabajoU4PartA/build/CMakeFiles/edit_cache.dir
+/home/bryan/Documentos/segundoInterciclo/TrabajoU4PartA/build/CMakeFiles/rebuild_cache.dir
