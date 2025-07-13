@@ -1,44 +1,48 @@
 # Trabajo Unidad 4 – Parte A  
 ## Modelo YOLOv11 con Transfer Learning para el Reconocimiento de Letras del Alfabeto Griego
 
+---
+
+## 📌 Descripción
+
+En esta parte del trabajo se implementa un sistema de detección de objetos basado en **YOLOv11**, adaptado mediante **transfer learning** para reconocer las **24 letras del alfabeto griego**. El modelo fue entrenado en Google Colab, exportado al formato **ONNX**, y posteriormente integrado en una aplicación en **C++** que permite realizar inferencia en tiempo real desde la cámara del dispositivo.
+
+La aplicación soporta ejecución tanto en **CPU** como en **GPU (CUDA)**, permitiendo comparar el desempeño entre ambos modos de procesamiento.
 
 ---
 
-## 📌 Descripción  
-Esta parte del trabajo se implementa un sistema de detección de objetos basado en **YOLOv11**, adaptado mediante **transfer learning** para reconocer las 24 letras del **alfabeto griego**. El modelo se entrenó en Google Colab, se exportó al formato **ONNX** y se integra en una aplicación C++ que permite inferencia en tiempo real desde la cámara del equipo. Soporta ejecución tanto en **CPU** como en **GPU (CUDA)**.
-
----
-
-## 📁 Estructura del proyecto  
+## 📁 Estructura del Proyecto
 
 TrabajoU4PartA/
-├── build/ → Carpeta de compilación
+├── build/ → Carpeta donde se genera la compilación
 ├── models/
 │ ├── best.onnx → Modelo entrenado en formato ONNX
 │ ├── best2_simplified.onnx → Versión optimizada del modelo
 │ └── classes.txt → Lista de clases (24 letras del alfabeto griego)
 ├── imagen/
-│ └── imagen1.jpg → Imagen de prueba (extra para probar el modelo al cargar una imagen)
+│ └── imagen1.jpg → Imagen de prueba
 ├── src/
-│ └── principal.cpp → Código fuente principal
+│ └── principal.cpp → Código fuente principal en C++
 ├── onnxruntime-linux-x64-gpu-1.22.0/ → Librería ONNX Runtime para GPU
 ├── onnxruntime-linux-x64-1.19.2/ → Librería ONNX Runtime para CPU
 ├── CMakeLists.txt → Script de configuración de CMake
 └── README.md → Este archivo
 
+
 ---
 
-## 🧰  Compilación y ejecución
+## 🧰 Compilación y Ejecución
 
-1. **Eliminar compilación anterior y crear carpeta `build/`:**  
-   ```bash
-   cd /home/bryan/Documentos/segundoInterciclo/TrabajoU4PartA
-   rm -rf build
-   mkdir build
-   cd build
-``` 
+### 1. Limpiar carpeta de compilación previa y crear nueva:
 
-2. **Configurar el proyecto con CMake (indicando las rutas de ONNX Runtime):**
+```bash
+cd /home/bryan/Documentos/segundoInterciclo/TrabajoU4PartA
+rm -rf build
+mkdir build
+cd build```
+
+2. Configurar el proyecto con CMake:
+⚠️ Reemplaza la ruta según la ubicación local de tu proyecto. 
 
 ```bash
 cmake \
@@ -47,26 +51,26 @@ cmake \
   ..
 ```
 
-2. Compilar utilizando todos los núcleos disponibles:
+3. Compilar 
 
-```bash
-make -j$(nproc)
-```
+make
 
-4. **Ejecutar la aplicación:**
+4. Ejecutar la aplicación:
 
 ```bash
 ./principal
 ```
 
+---
 
-## ⚙🎥 Resultados
 
-**Video en tiempo real**  
-   Al abrir la cámara, el usuario podrá mostrar figuras de letras del alfabeto griego en tiempo real y la aplicación las detectará automáticamente.  
-   - Se abre la ventana **“Detección en Tiempo Real”** con el flujo de video y las detecciones superpuestas.  
-   - En la esquina superior izquierda aparece el contador de **FPS** para ambos modos de ejecución:  
-     - **CPU:** FPS promedio al procesar en la CPU.  
-     - **GPU:** FPS promedio al procesar con aceleración CUDA en GPU, mostrando el **speedup** logrado.  
-   - Para salir, el usuario presiona la tecla `q`. 
+⚙🎥 Resultados Esperados
+Al ejecutar el programa, se abrirá la ventana “Detección en Tiempo Real” , mostrando el flujo de video desde la cámara del equipo y superponiendo cuadros delimitadores (bounding boxes ) sobre las letras detectadas.
+
+Características:
+- Detección automática de letras del alfabeto griego en tiempo real.
+- Muestra de FPS promedio en pantalla:
+Modo CPU
+Modo GPU (CUDA)
+- Presiona la tecla q para cerrar la ventana de video.
 
