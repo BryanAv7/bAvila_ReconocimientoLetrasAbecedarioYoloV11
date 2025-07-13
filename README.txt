@@ -4,12 +4,12 @@
 
 ---
 
-### 📌 Descripción  
+## 📌 Descripción  
 Esta parte del trabajo se implementa un sistema de detección de objetos basado en **YOLOv11**, adaptado mediante **transfer learning** para reconocer las 24 letras del **alfabeto griego**. El modelo se entrenó en Google Colab, se exportó al formato **ONNX** y se integra en una aplicación C++ que permite inferencia en tiempo real desde la cámara del equipo. Soporta ejecución tanto en **CPU** como en **GPU (CUDA)**.
 
 ---
 
-### 📁 Estructura del proyecto  
+## 📁 Estructura del proyecto  
 
 TrabajoU4PartA/
 ├── build/ → Carpeta de compilación
@@ -28,7 +28,7 @@ TrabajoU4PartA/
 
 ---
 
-### 🧰  Compilación y ejecución
+## 🧰  Compilación y ejecución
 
 1. **Eliminar compilación anterior y crear carpeta `build/`:**  
    ```bash
@@ -60,7 +60,7 @@ make -j$(nproc)
 ```
 
 
-### ⚙🎥 Resultados
+## ⚙🎥 Resultados
 
 **Video en tiempo real**  
    Al abrir la cámara, el usuario podrá mostrar figuras de letras del alfabeto griego en tiempo real y la aplicación las detectará automáticamente.  
